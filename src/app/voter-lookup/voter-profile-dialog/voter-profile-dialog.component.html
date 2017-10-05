@@ -1,0 +1,46 @@
+<md-toolbar>
+  <span>{{data.voter.name}}</span>
+  <span class="example-spacer"></span>
+  <button md-button><md-icon (click)="closeDialog()">close</md-icon></button>  
+</md-toolbar>
+<md-list>
+ <md-list-item>
+   <h2 mdLine>
+     <span class="fill-space"><md-icon>assignment_ind</md-icon> ID: {{data.voter.voterId}}</span>
+     <span class="fill-space"><md-icon>perm_contact_calendar</md-icon> Age: {{data.voter.age}}</span>
+     <span class="fill-space"><md-icon>group</md-icon> Party: {{data.voter.party}}</span>
+     <span><md-icon>markunread_mailbox</md-icon> VBM: {{data.voter.vbm}}</span>
+   </h2>
+ </md-list-item>
+
+ <!-- Phone -->
+ <md-list-item>
+    <md-icon md-list-icon>phone</md-icon>
+    <h4 md-line>Phone</h4>
+    <p md-line>{{data.voter.phone}}</p>      
+  </md-list-item> 
+
+  <!-- Address -->
+  <md-list-item>
+    <md-icon md-list-icon>home</md-icon>
+    <h1 md-line>Address</h1>    
+    <h2 md-line>{{data.voter.address}}</h2>
+    <h3 md-line>{{data.voter.cityStateZip}}</h3>
+  </md-list-item>
+
+  <md-divider></md-divider>
+
+  <md-list-item>
+    <h2 mdLine>
+    <span class="fill-space">Orig Reg Date: {{data.voter.origRegDate  | date: 'shortDate'}}</span>
+    <span class="fill-space">Recent Reg Date: {{data.voter.recentRegDate  | date: 'shortDate'}}</span>
+    </h2>
+  </md-list-item>
+  <md-list-item>
+    <h2 mdLine>
+    <span class="fill-space">DoB: {{data.voter.dateOfBirth | date: 'shortDate'}}</span>
+    <span>Country of Origin: {{data.voter.originCountry}}</span>
+  </h2>
+  </md-list-item>
+  
+</md-list>

@@ -1,0 +1,43 @@
+<form [formGroup]="scriptForm" (ngSubmit)="onSubmit()" class="form-full-width">
+  <table cellspacing="15">
+    <tr>
+      <td>
+        <md-form-field class="full-width">
+          <input mdInput placeholder="Script Name" formControlName="scriptName">
+        </md-form-field>
+      </td>
+      <td>
+        <md-form-field class="full-width">
+          <input mdInput placeholder="Script Details" formControlName="scriptDetails">
+        </md-form-field>
+      </td>
+    </tr>
+
+    <!-- Script Question Array -->
+    <tr>
+      <div formArrayName="scriptQuestions">
+        <div *ngFor="let question of scriptQuestions.controls; let i=index" [formGroupName]="i">
+          <md-form-field class="full-width">
+            <input mdInput placeholder="Question" formControlName="question">
+          </md-form-field>
+
+          <!-- Flags Array -->
+          <div formArrayName="responseFlags">
+            <div *ngFor="let flag of question.controls.responseFlags.controls; let j=index" [formGroupName]="j">
+                <md-form-field class="full-width">
+                    <input mdInput placeholder="Name" formControlName="name">
+                  </md-form-field><md-form-field class="full-width">
+                      <input mdInput placeholder="Abbreviation" formControlName="nameAbbrev">
+                    </md-form-field>
+            </div>
+          </div>
+          <button (click)="addResponseFlag(i)" type="button">add a flag</button>
+          
+        </div>
+        <button (click)="addQuestion()" type="button">add a question</button>
+      </div>
+    </tr>
+
+  </table>
+  <button type="submit" >Save</button>
+</form>

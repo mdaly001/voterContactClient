@@ -1,0 +1,11 @@
+<md-expansion-panel *ngFor="let script of scriptList | async as list">
+  <md-expansion-panel-header>
+    <md-panel-title>{{script.scriptName}}</md-panel-title>
+    <md-panel-description>
+      <span class="fill-space">{{script.scriptDetails}}</span>
+      <span>{{script.questionAmount}} questions</span>
+    </md-panel-description>
+  </md-expansion-panel-header>
+  <!-- <app-script-form [script]="script"></app-script-form> -->
+</md-expansion-panel>
+<button md-fab (click)="addScript()"><md-icon>add</md-icon></button>

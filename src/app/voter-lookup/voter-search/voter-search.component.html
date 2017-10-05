@@ -1,0 +1,87 @@
+<form [formGroup]="voterSearchForm" (ngSubmit)="onSubmit()">
+  <table cellspacing="15">
+    <tr>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="First Name" formControlName="firstName">
+        </md-form-field>
+      </td>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="Middle Name" formControlName="middleName">
+        </md-form-field>
+      </td>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="Last Name" formControlName="lastName">
+        </md-form-field>
+      </td>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="Voter ID" formControlName="voterId">
+        </md-form-field>
+      </td>
+    </tr>
+  </table>
+  <table cellspacing="15">
+    <tr>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="Party" formControlName="party">
+        </md-form-field>
+      </td>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="County" formControlName="county">
+        </md-form-field>
+      </td>
+      <td>
+        <md-form-field>
+          <input mdInput [mdDatepicker]="picker" placeholder="Date Of Birth" formControlName="dateOfBirth">
+          <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+        <md-datepicker #picker></md-datepicker>
+      </md-form-field>
+      </td>
+    </tr>
+  </table>
+  <table cellspacing="15">
+    <tr>
+      <md-form-field>
+        <input mdInput placeholder="Address" formControlName="address1">
+      </md-form-field>
+    </tr>
+    <tr>
+      <md-form-field>
+        <input mdInput placeholder="Address 2" formControlName="address2">
+      </md-form-field>
+    </tr>
+  </table>
+  <table cellspacing="15">
+    <tr>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="City" formControlName="city">
+        </md-form-field>
+      </td>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="State" formControlName="state">
+        </md-form-field>
+      </td>
+      <td>
+        <md-form-field>
+          <input mdInput #postalCode maxLength="5" placeholder="Zip Code" formControlName="postalCode">
+          <md-hint align="end">{{postalCode.value.length}}/5</md-hint>
+        </md-form-field>
+      </td>
+    </tr>
+  </table>
+  <table cellspacing="15">
+    <tr>
+      <td>
+        <button md-raised-button type="reset" [disabled]="voterSearchForm.pristine" (click)="revert()">Clear</button>
+        <button md-raised-button type="submit" [disabled]="voterSearchForm.pristine">Submit</button>
+      </td>
+    </tr>
+  </table>
+</form>
