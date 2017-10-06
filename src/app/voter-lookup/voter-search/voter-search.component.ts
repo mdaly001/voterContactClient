@@ -5,7 +5,7 @@ import { VoterLookupService } from './../services/voter-lookup.service';
 @Component({
   selector: 'app-voter-search',
   templateUrl: './voter-search.component.html',
-  styleUrls: ['./voter-search.component.css']
+  styles: [ ]
 })
 export class VoterSearchComponent implements OnInit {
 
