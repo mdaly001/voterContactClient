@@ -1,5 +1,5 @@
 import { User } from './../../../shared/models/userModel';
-import { Script, Flag, Question } from './../../models/scriptModel';
+import { Script, Flag, Question } from './../../../shared/models/scriptModel';
 import { House } from './../../../shared/models/houseModel';
 
 const userMichael = new User('1', 'Michael', 'Reynoso', 'Gomez',
@@ -10,22 +10,28 @@ const userMonica = new User('2', 'Monica', 'Reynoso', 'Gomez',
     [new House('1234 some street', '', 'some city', 'San Bernardino', 'CA', '92345')],
     '0000000000', 'fasdf23433');
 
+const responseFlags: Flag[] = [
+    new Flag('Yes', 'y'),
+    new Flag('Undecided', 'und'),
+    new Flag('No', 'n')
+];
+
 const candidateQuestions: Question[] = [
-    new Question('Are you aware there will be an election this upcoming November' ),
-    new Question('Will you be voting this upcoming election?' ),
-    new Question('Do you support Eloise for Assembly?' )
+    new Question('Are you aware there will be an election this upcoming November', responseFlags),
+    new Question('Will you be voting this upcoming election?', responseFlags),
+    new Question('Do you support Eloise for Assembly?', responseFlags)
 ];
 
 const nonProfitQuestions: Question[] = [
-    new Question('Are you aware there will be an election this upcoming November' ),
-    new Question('Will you be voting this upcoming election?' )
+    new Question('Are you aware there will be an election this upcoming November', responseFlags),
+    new Question('Will you be voting this upcoming election?', responseFlags)
 ];
 
 const issueQuestions: Question[] = [
-    new Question('Do you support criminal justice reform?' ),
-    new Question('Do you support immigration reform?' ),
-    new Question('Do you support environmental justice?' ),
-    new Question('Will you be voting this upcoming election?' )
+    new Question('Do you support criminal justice reform?', responseFlags),
+    new Question('Do you support immigration reform?', responseFlags),
+    new Question('Do you support environmental justice?', responseFlags),
+    new Question('Will you be voting this upcoming election?', responseFlags)
 ];
 
 export const SCRIPTLIST: Script[] = [
@@ -33,6 +39,5 @@ export const SCRIPTLIST: Script[] = [
     new Script('Non Profit Version General 2017', 'Non Profit Version', nonProfitQuestions, new Date('03/23/2017'), userMonica),
     new Script('Issue Version General 2017', 'Issue Version', issueQuestions, new Date('04/12/2017'), userMichael)
 ];
-
 
 

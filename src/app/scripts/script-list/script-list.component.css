@@ -1,3 +1,28 @@
-.fill-space{
-    margin-right: 32px;
-  }
+/* Structure */
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  font-size: 20px;
+}
+
+.mat-table {
+  overflow: auto;
+}
+.table-row:hover{
+  background-color: lightgray;
+}
+
+.custom-button{
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}

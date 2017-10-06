@@ -8,21 +8,12 @@ export class Script {
         public creationDate: Date,
         public createdBy: User
     ) { }
-    get questionAmount() {
-        return this.scriptQuestions.length;
-    }
 }
 
 export class Question {
     constructor(
-        // public question: string = ' ',
-        // public responseFlags: Flag[] = [
-        //     new Flag('Yes', 'Y'),
-        //     new Flag('No', 'N'),
-        //     new Flag('Undecided', 'Und')
-        // ]
         public question: string = ' ',
-        public responseFlags: Flag[] = []
+        public responseFlags: Flag[]
     ) { }
 
     get responses() {

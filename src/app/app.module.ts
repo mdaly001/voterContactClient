@@ -30,7 +30,9 @@ import {MaterialModule} from './material.module';
     VoterLookupModule.forRoot(),
     ScriptsModule.forRoot()
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

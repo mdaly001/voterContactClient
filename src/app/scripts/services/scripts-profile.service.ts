@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Script, Question } from './../models/scriptModel';
+import { Script, Question } from './../../shared/models/scriptModel';
 import { ScriptsProfileHttpService } from './../services/scripts-profile-http.service';
 
 @Injectable()
@@ -11,7 +11,7 @@ export class ScriptsProfileService {
 
   constructor(private _scriptsProfileHttpService: ScriptsProfileHttpService) {
     this._scriptList.next(this._scriptsProfileHttpService.getScriptList());
-   }
+  }
 
   getScriptList() {
     return this._scriptList;
@@ -21,7 +21,12 @@ export class ScriptsProfileService {
     return this._script.value;
   }
 
-  setScript(script) {
+  setScript(script: Script) {
     this._script.next(script);
+  }
+
+  addScript(script: Script) {
+    this._scriptsProfileHttpService.addScript(script);
+    this._scriptList.next(this._scriptsProfileHttpService.getScriptList());
   }
 }

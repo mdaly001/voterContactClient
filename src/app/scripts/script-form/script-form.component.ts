@@ -1,21 +1,22 @@
-import { Component, Input, OnChanges } from '@angular/core';
-import { Script, Question, Flag } from './../models/scriptModel';
+import { Component, Inject } from '@angular/core';
+import { Script, Question, Flag } from './../../shared/models/scriptModel';
 import { FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { ScriptsProfileService } from './../services/scripts-profile.service';
+import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-script-form',
   templateUrl: './script-form.component.html',
   styleUrls: ['./script-form.component.css']
 })
-export class ScriptFormComponent implements OnChanges {
-  @Input() script: Script;
-
+export class ScriptFormComponent {
   scriptForm: FormGroup;
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder,
+    private _scriptsProfileService: ScriptsProfileService,
+    public dialogRef: MdDialogRef<ScriptFormComponent>,
+    @Inject(MD_DIALOG_DATA) public data: any) {
     this.createForm();
-    // this.addResponseFlag();
   }
 
   createForm() {
@@ -26,74 +27,93 @@ export class ScriptFormComponent implements OnChanges {
         this.initScriptQuestions()
       ]),
       creationDate: '',
-      createdBy: ''
+      createdBy: ' '
     });
+    if (this.data) {
+      this.patchForm(this.data.script);
+    }
   }
 
-  initScriptQuestions() {
-    return this._fb.group({
-      question: '',
-      responseFlags: this._fb.array([
-        this.initResponseFlags()
-      ])
+  patchForm(script: Script) {
+    this.scriptForm.patchValue({
+      scriptName: script.scriptName,
+      scriptDetails: script.scriptDetails,
+      creationDate: script.creationDate,
+      createdBy: script.createdBy
     });
+    this.removeQuestion(0);
+    this.patchScriptQuestions(script.scriptQuestions);
   }
 
-  initResponseFlags() {
-    return this._fb.group({
-      name: ' ',
-      nameAbbrev: ' '
-    });
+  patchScriptQuestions(questions: Question[]) {
+    for (let i = 0; i < questions.length; i++) {
+      this.scriptQuestions.push(this.initScriptQuestions(questions[i]));
+      const responseFlags = this.scriptForm.get('scriptQuestions.' + i).get('responseFlags') as FormArray;
+      for (let j = 0; j < questions[i].responseFlags.length; j++) {
+        responseFlags.push(this.initFlag(questions[i].responseFlags[j]));
+      }
+    }
   }
 
-  initFlag() {
-    return this._fb.group({
-      name: ' ',
-      nameAbbrev: ' '
-    });
+  initScriptQuestions(question?: Question) {
+    if (question) {
+      return this._fb.group({
+        question: question.question,
+        responseFlags: this._fb.array([])
+      });
+    } else {
+      return this._fb.group({
+        question: ' ',
+        responseFlags: this._fb.array([
+          this.initFlag()
+        ])
+      });
+    }
   }
 
-  ngOnChanges() {
-    // this.scriptForm.reset({
-    //   scriptName: this.script.scriptName,
-    //   scriptDetails: this.script.scriptDetails,
-    //   creationDate: this.script.creationDate,
-    //   createdBy: this.script.createdBy
-    // });
-    // this.setQuestions(this.script.scriptQuestions);
-    // this.setResponseFlags(this.script.scriptQuestions.responseFlags);
+  initFlag(flag?: Flag) {
+    if (flag) {
+      return this._fb.group({
+        name: flag.name,
+        nameAbbrev: flag.nameAbbrev
+      });
+    } else {
+      return this._fb.group({
+        name: ' ',
+        nameAbbrev: ' '
+      });
+    }
   }
-
-  // get responseFlags(): FormArray {
-  //   return this.scriptForm.get('responseFlags') as FormArray;
-  // }
-
-  // setResponseFlags(flags: Flag[]) {
-  //   const flagFGs = flags.map(flag => this._fb.group(flag));
-  //   const flagFormArray = this._fb.array(flagFGs);
-  //   this.scriptForm.setControl('responseFlags', flagFormArray);
-  // }
 
   addResponseFlag(idx: number) {
     const responseFlags = this.scriptForm.get('scriptQuestions.' + idx).get('responseFlags') as FormArray;
     responseFlags.push(this.initFlag());
   }
 
+  removeResponseFlag(idxOfQuestion: number, idxOfFlag: number) {
+    const responseFlags = this.scriptForm.get('scriptQuestions.' + idxOfQuestion).get('responseFlags') as FormArray;
+    responseFlags.removeAt(idxOfFlag);
+  }
+
   get scriptQuestions(): FormArray {
     return this.scriptForm.get('scriptQuestions') as FormArray;
   }
-
-  // setQuestions(questions: Question[]) {
-  //   const questionFGs = questions.map(question => this._fb.group(question));
-  //   const questionFormArray = this._fb.array(questionFGs);
-  //   this.scriptForm.setControl('scriptQuestions', questionFormArray);
-  // }
 
   addQuestion() {
     this.scriptQuestions.push(this.initScriptQuestions());
   }
 
+  removeQuestion(idx: number) {
+    const questions = this.scriptForm.get('scriptQuestions') as FormArray;
+    questions.removeAt(idx);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
   onSubmit() {
-    console.log(this.scriptForm.value);
+    this._scriptsProfileService.addScript(this.scriptForm.value);
+    this.dialogRef.close();
   }
 }

@@ -1,11 +1,40 @@
-<md-expansion-panel *ngFor="let script of scriptList | async as list">
-  <md-expansion-panel-header>
-    <md-panel-title>{{script.scriptName}}</md-panel-title>
-    <md-panel-description>
-      <span class="fill-space">{{script.scriptDetails}}</span>
-      <span>{{script.questionAmount}} questions</span>
-    </md-panel-description>
-  </md-expansion-panel-header>
-  <!-- <app-script-form [script]="script"></app-script-form> -->
-</md-expansion-panel>
-<button md-fab (click)="addScript()"><md-icon>add</md-icon></button>
+<div class="example-container mat-elevation-z8">
+    <md-table #table [dataSource]="dataSource">
+      <!-- Script Name -->
+      <ng-container mdColumnDef="name">
+        <md-header-cell *mdHeaderCellDef>Name</md-header-cell>
+        <md-cell *mdCellDef="let row">{{row.scriptName}}</md-cell>
+      </ng-container>
+  
+      <!-- Script Details -->
+      <ng-container mdColumnDef="details">
+        <md-header-cell *mdHeaderCellDef>Script Detail</md-header-cell>
+        <md-cell *mdCellDef="let row">{{row.scriptDetails}}</md-cell>
+      </ng-container>
+  
+      <!-- # of Script Questions -->
+      <ng-container mdColumnDef="amountOfQuestions">
+        <md-header-cell *mdHeaderCellDef>Amount of Questions</md-header-cell>
+        <md-cell *mdCellDef="let row">{{row.scriptQuestions.length}}</md-cell>
+      </ng-container>
+  
+      <!-- Created By -->
+      <ng-container mdColumnDef="createdBy">
+        <md-header-cell *mdHeaderCellDef>Created By</md-header-cell>
+        <md-cell *mdCellDef="let row">{{row.createdBy.name}}</md-cell>
+      </ng-container>
+  
+      <!-- Script Name -->
+      <ng-container mdColumnDef="createdOn">
+        <md-header-cell *mdHeaderCellDef>Created On</md-header-cell>
+        <md-cell *mdCellDef="let row">{{row.creationDate | date: 'shortDate'}}</md-cell>
+      </ng-container>
+  
+      <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+      <md-row *mdRowDef="let row; columns: displayedColumns;" class="table-row" (click)="selectScript(row)"></md-row>
+  
+    </md-table>
+    <button md-fab color="accent" class="custom-button" aria-label="Add a script" (click)="addScript()">
+      <md-icon>add</md-icon>
+  </button>
+  </div>
