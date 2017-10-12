@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { VoterLookupService } from './../services/voter-lookup.service';
 import { Router } from '@angular/router';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { VoterProfileDialogComponent } from './../voter-profile-dialog/voter-profile-dialog.component';
 
 @Component({
@@ -18,7 +18,7 @@ export class VoterSearchResultListComponent implements OnInit {
 
   constructor(private _router: Router,
     private _voterLookupService: VoterLookupService,
-    public dialog: MdDialog) { }
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this._voterLookupService);

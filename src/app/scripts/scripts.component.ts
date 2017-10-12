@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-scripts',
   template: `
-    <md-toolbar color='accent'>Scripts</md-toolbar>
+    <mat-toolbar>Scripts</mat-toolbar>
     <router-outlet></router-outlet>
   `,
-  styles: []
+  styles: [ ]
 })
 export class ScriptsComponent { }

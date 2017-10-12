@@ -1,42 +1,42 @@
 <div class="example-container mat-elevation-z8">
-  <md-table #table [dataSource]="dataSource">
+  <mat-table #table [dataSource]="dataSource">
     <!-- Voter Name -->
-    <ng-container mdColumnDef="name">
-      <md-header-cell *mdHeaderCellDef>Name</md-header-cell>
-      <md-cell *mdCellDef="let row">{{row.firstName}} {{row.middleName}} {{row.lastName}}</md-cell>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.firstName}} {{row.middleName}} {{row.lastName}}</mat-cell>
     </ng-container>
     <!-- Voter Age -->
-    <ng-container mdColumnDef="age">
-      <md-header-cell *mdHeaderCellDef>Age</md-header-cell>
-      <md-cell *mdCellDef="let row">{{row.age}}</md-cell>
+    <ng-container matColumnDef="age">
+      <mat-header-cell *matHeaderCellDef>Age</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.age}}</mat-cell>
     </ng-container>
     <!-- Voter Party -->
-    <ng-container mdColumnDef="party">
-      <md-header-cell *mdHeaderCellDef>Party</md-header-cell>
-      <md-cell *mdCellDef="let row">{{row.party}}</md-cell>
+    <ng-container matColumnDef="party">
+      <mat-header-cell *matHeaderCellDef>Party</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.party}}</mat-cell>
     </ng-container>
     <!-- Voter Address -->
-    <ng-container mdColumnDef="address">
-      <md-header-cell *mdHeaderCellDef>Address</md-header-cell>
-      <md-cell *mdCellDef="let row">{{row.address}}</md-cell>
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.address}}</mat-cell>
     </ng-container>
     <!-- Voter City -->
-    <ng-container mdColumnDef="city">
-      <md-header-cell *mdHeaderCellDef>City</md-header-cell>
-      <md-cell *mdCellDef="let row">{{row.city}}</md-cell>
+    <ng-container matColumnDef="city">
+      <mat-header-cell *matHeaderCellDef>City</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.city}}</mat-cell>
     </ng-container>
     <!-- Voter County -->
-    <ng-container mdColumnDef="county">
-      <md-header-cell *mdHeaderCellDef>County</md-header-cell>
-      <md-cell *mdCellDef="let row">{{row.county}}</md-cell>
+    <ng-container matColumnDef="county">
+      <mat-header-cell *matHeaderCellDef>County</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.county}}</mat-cell>
     </ng-container>
     <!-- Voter State -->
-    <ng-container mdColumnDef="state">
-      <md-header-cell *mdHeaderCellDef>State</md-header-cell>
-      <md-cell *mdCellDef="let row">{{row.state}}</md-cell>
+    <ng-container matColumnDef="state">
+      <mat-header-cell *matHeaderCellDef>State</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.state}}</mat-cell>
     </ng-container>
 
-    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *mdRowDef="let row; columns: displayedColumns;" (click)="handleRowClick(row)" class="table-row"></md-row>
-  </md-table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="handleRowClick(row)" class="table-row"></mat-row>
+  </mat-table>
 </div>

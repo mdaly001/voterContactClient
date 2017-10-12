@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-voter-lookup',
   template: `
-    <md-toolbar color='accent'>Voter Lookup</md-toolbar>
+    <mat-toolbar>Voter Lookup</mat-toolbar>
     <app-voter-search></app-voter-search>
     <app-voter-search-result-list></app-voter-search-result-list>
   `,

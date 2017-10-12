@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { Script, Question, Flag } from './../../shared/models/scriptModel';
 import { FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ScriptsProfileService } from './../services/scripts-profile.service';
-import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { ScriptsProfileService } from './../../shared/services/scripts-profile.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-script-form',
@@ -14,8 +14,8 @@ export class ScriptFormComponent {
 
   constructor(private _fb: FormBuilder,
     private _scriptsProfileService: ScriptsProfileService,
-    public dialogRef: MdDialogRef<ScriptFormComponent>,
-    @Inject(MD_DIALOG_DATA) public data: any) {
+    public dialogRef: MatDialogRef<ScriptFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
     this.createForm();
   }
 

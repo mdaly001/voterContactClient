@@ -2,85 +2,85 @@
   <table cellspacing="15">
     <tr>
       <td>
-        <md-form-field>
-          <input mdInput placeholder="First Name" formControlName="firstName">
-        </md-form-field>
+        <mat-form-field>
+          <input matInput placeholder="First Name" formControlName="firstName">
+        </mat-form-field>
       </td>
       <td>
-        <md-form-field>
-          <input mdInput placeholder="Middle Name" formControlName="middleName">
-        </md-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Middle Name" formControlName="middleName">
+        </mat-form-field>
       </td>
       <td>
-        <md-form-field>
-          <input mdInput placeholder="Last Name" formControlName="lastName">
-        </md-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last Name" formControlName="lastName">
+        </mat-form-field>
       </td>
       <td>
-        <md-form-field>
-          <input mdInput placeholder="Voter ID" formControlName="voterId">
-        </md-form-field>
-      </td>
-    </tr>
-  </table>
-  <table cellspacing="15">
-    <tr>
-      <td>
-        <md-form-field>
-          <input mdInput placeholder="Party" formControlName="party">
-        </md-form-field>
-      </td>
-      <td>
-        <md-form-field>
-          <input mdInput placeholder="County" formControlName="county">
-        </md-form-field>
-      </td>
-      <td>
-        <md-form-field>
-          <input mdInput [mdDatepicker]="picker" placeholder="Date Of Birth" formControlName="dateOfBirth">
-          <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-        <md-datepicker #picker></md-datepicker>
-      </md-form-field>
-      </td>
-    </tr>
-  </table>
-  <table cellspacing="15">
-    <tr>
-      <md-form-field>
-        <input mdInput placeholder="Address" formControlName="address1">
-      </md-form-field>
-    </tr>
-    <tr>
-      <md-form-field>
-        <input mdInput placeholder="Address 2" formControlName="address2">
-      </md-form-field>
-    </tr>
-  </table>
-  <table cellspacing="15">
-    <tr>
-      <td>
-        <md-form-field>
-          <input mdInput placeholder="City" formControlName="city">
-        </md-form-field>
-      </td>
-      <td>
-        <md-form-field>
-          <input mdInput placeholder="State" formControlName="state">
-        </md-form-field>
-      </td>
-      <td>
-        <md-form-field>
-          <input mdInput #postalCode maxLength="5" placeholder="Zip Code" formControlName="postalCode">
-          <md-hint align="end">{{postalCode.value.length}}/5</md-hint>
-        </md-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Voter ID" formControlName="voterId">
+        </mat-form-field>
       </td>
     </tr>
   </table>
   <table cellspacing="15">
     <tr>
       <td>
-        <button md-raised-button type="reset" [disabled]="voterSearchForm.pristine" (click)="revert()">Clear</button>
-        <button md-raised-button type="submit" [disabled]="voterSearchForm.pristine">Submit</button>
+        <mat-form-field>
+          <input matInput placeholder="Party" formControlName="party">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <input matInput placeholder="County" formControlName="county">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" formControlName="dateOfBirth">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <table cellspacing="15">
+    <tr>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="address1">
+      </mat-form-field>
+    </tr>
+    <tr>
+      <mat-form-field>
+        <input matInput placeholder="Address 2" formControlName="address2">
+      </mat-form-field>
+    </tr>
+  </table>
+  <table cellspacing="15">
+    <tr>
+      <td>
+        <mat-form-field>
+          <input matInput placeholder="City" formControlName="city">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <input matInput placeholder="State" formControlName="state">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <input matInput #postalCode maxLength="5" placeholder="Zip Code" formControlName="postalCode">
+          <mat-hint align="end">{{postalCode.value.length}}/5</mat-hint>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <table cellspacing="15">
+    <tr>
+      <td>
+        <button mat-raised-button type="reset" [disabled]="voterSearchForm.pristine" (click)="revert()">Clear</button>
+        <button mat-raised-button type="submit" [disabled]="voterSearchForm.pristine">Submit</button>
       </td>
     </tr>
   </table>

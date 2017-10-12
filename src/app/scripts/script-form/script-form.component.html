@@ -2,28 +2,28 @@
   <table cellspacing="15">
     <tr>
       <td>
-        <md-form-field class="full-width">
-          <input mdInput placeholder="Script Name" formControlName="scriptName">
-        </md-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Script Name" formControlName="scriptName">
+        </mat-form-field>
       </td>
     </tr>
     <tr>
       <td>
-        <md-form-field class="full-width">
-          <input mdInput placeholder="Script Details" formControlName="scriptDetails">
-        </md-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Script Details" formControlName="scriptDetails">
+        </mat-form-field>
       </td>
     </tr>
-    <md-dialog-content>
+    <mat-dialog-content>
       <!-- Script Question Array -->
       <tr>
         <table cellspacing="15">
           <tr formArrayName="scriptQuestions">
             <div *ngFor="let question of scriptQuestions.controls; let i=index" [formGroupName]="i">
               <td>
-                <md-form-field class="full-width">
-                  <input mdInput placeholder="Question" formControlName="question">
-                </md-form-field>
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Question" formControlName="question">
+                </mat-form-field>
               </td>
               <td>
                 <button (click)="removeQuestion(i)" type="button" *ngIf="scriptQuestions.controls.length>1">Delete</button>
@@ -34,14 +34,14 @@
                 <tr formArrayName="responseFlags">
                   <div *ngFor="let flag of question.controls.responseFlags.controls; let j=index" [formGroupName]="j">
                     <td>
-                      <md-form-field class="full-width">
-                        <input mdInput placeholder="Name" formControlName="name">
-                      </md-form-field>
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Name" formControlName="name">
+                      </mat-form-field>
                     </td>
                     <td>
-                      <md-form-field class="full-width">
-                        <input mdInput placeholder="Abbreviation" formControlName="nameAbbrev">
-                      </md-form-field>
+                      <mat-form-field class="full-width">
+                        <input matInput placeholder="Abbreviation" formControlName="nameAbbrev">
+                      </mat-form-field>
                     </td>
                     <td><button (click)="removeResponseFlag(i, j)" type="button" *ngIf="question.controls.responseFlags.controls.length>1">Delete</button></td>
                   </div>
@@ -53,7 +53,7 @@
           <button (click)="addQuestion()" type="button">add a question</button>
         </table>
       </tr>
-    </md-dialog-content>
+    </mat-dialog-content>
   </table>
   <button type="submit">Save</button>
 </form>

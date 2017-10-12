@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Script } from './../../../shared/models/scriptModel';
+import { Script } from './../../shared/models/scriptModel';
 import { SCRIPTLIST } from './../mockData/mock-scriptList';
 
 @Injectable()

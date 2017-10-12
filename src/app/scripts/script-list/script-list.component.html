@@ -1,40 +1,40 @@
 <div class="example-container mat-elevation-z8">
-    <md-table #table [dataSource]="dataSource">
+    <mat-table #table [dataSource]="dataSource">
       <!-- Script Name -->
-      <ng-container mdColumnDef="name">
-        <md-header-cell *mdHeaderCellDef>Name</md-header-cell>
-        <md-cell *mdCellDef="let row">{{row.scriptName}}</md-cell>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.scriptName}}</mat-cell>
       </ng-container>
   
       <!-- Script Details -->
-      <ng-container mdColumnDef="details">
-        <md-header-cell *mdHeaderCellDef>Script Detail</md-header-cell>
-        <md-cell *mdCellDef="let row">{{row.scriptDetails}}</md-cell>
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef>Script Detail</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.scriptDetails}}</mat-cell>
       </ng-container>
   
       <!-- # of Script Questions -->
-      <ng-container mdColumnDef="amountOfQuestions">
-        <md-header-cell *mdHeaderCellDef>Amount of Questions</md-header-cell>
-        <md-cell *mdCellDef="let row">{{row.scriptQuestions.length}}</md-cell>
+      <ng-container matColumnDef="amountOfQuestions">
+        <mat-header-cell *matHeaderCellDef>Amount of Questions</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.scriptQuestions.length}}</mat-cell>
       </ng-container>
   
       <!-- Created By -->
-      <ng-container mdColumnDef="createdBy">
-        <md-header-cell *mdHeaderCellDef>Created By</md-header-cell>
-        <md-cell *mdCellDef="let row">{{row.createdBy.name}}</md-cell>
+      <ng-container matColumnDef="createdBy">
+        <mat-header-cell *matHeaderCellDef>Created By</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.createdBy.name}}</mat-cell>
       </ng-container>
   
       <!-- Script Name -->
-      <ng-container mdColumnDef="createdOn">
-        <md-header-cell *mdHeaderCellDef>Created On</md-header-cell>
-        <md-cell *mdCellDef="let row">{{row.creationDate | date: 'shortDate'}}</md-cell>
+      <ng-container matColumnDef="createdOn">
+        <mat-header-cell *matHeaderCellDef>Created On</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.creationDate | date: 'shortDate'}}</mat-cell>
       </ng-container>
   
-      <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
-      <md-row *mdRowDef="let row; columns: displayedColumns;" class="table-row" (click)="selectScript(row)"></md-row>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row" (click)="selectScript(row)"></mat-row>
   
-    </md-table>
-    <button md-fab color="accent" class="custom-button" aria-label="Add a script" (click)="addScript()">
-      <md-icon>add</md-icon>
+    </mat-table>
+    <button mat-fab color="accent" class="custom-button" aria-label="Add a script" (click)="addScript()">
+      <mat-icon>add</mat-icon>
   </button>
   </div>

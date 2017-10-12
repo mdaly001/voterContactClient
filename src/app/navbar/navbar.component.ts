@@ -10,7 +10,8 @@ export class NavbarComponent {
   menuItems = [
     { routerLink: '/', icon: 'home', text: 'Home' },
     { routerLink: 'voterLookup', icon: 'search', text: 'Voter Lookup' },
-    { routerLink: 'scripts', icon: 'assignment', text: 'Scripts' }
+    { routerLink: 'scripts', icon: 'assignment', text: 'Scripts' },
+    { routerLink: 'phone', icon: 'phone', text: 'Phone Module'}
   ];
 
 }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ScriptsProfileService } from './../services/scripts-profile.service';
+import { ScriptsProfileService } from './../../shared/services/scripts-profile.service';
 import { Observable } from 'rxjs/Observable';
 import { Script } from './../../shared/models/scriptModel';
 import { ScriptFormComponent } from './../script-form/script-form.component';
 import { Router } from '@angular/router';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import {DataSource} from '@angular/cdk/collections';
 
 @Component({
@@ -18,7 +18,7 @@ export class ScriptListComponent implements OnInit {
 
 
   constructor(private _scriptsProfileService: ScriptsProfileService,
-    public dialog: MdDialog) { }
+    public dialog: MatDialog) { }
 
   ngOnInit() {
     this.dataSource = new ExampleDataSource(this._scriptsProfileService);

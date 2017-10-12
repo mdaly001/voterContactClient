@@ -1,0 +1,11 @@
+<mat-expansion-panel *ngFor = "let phonebank of phonebankList">
+  <mat-expansion-panel-header>
+    <mat-panel-title>{{phonebank.name}}</mat-panel-title>
+    <mat-panel-description>{{phonebank.details}}</mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-list dense>
+    <mat-list-item *ngFor="let script of phonebank.scripts">
+    <p matLine>{{script.name}} # of questions: {{script.scriptQuestions.length}}</p>
+    </mat-list-item>
+  </mat-list>
+</mat-expansion-panel>

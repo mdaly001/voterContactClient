@@ -11,7 +11,7 @@ import { VoterSearchComponent } from './voter-search/voter-search.component';
 import { VoterSearchResultListComponent } from './voter-search-result-list/voter-search-result-list.component';
 import { VoterLookupService } from './services/voter-lookup.service';
 import { VoterLookupHttpService} from './services/voter-lookup-http.service';
-import { MockVoterLookupHttpService } from './mock/mockServices/mock-voter-lookup-http.service';
+import { MockVoterLookupHttpService } from './../mock/mockServices/mock-voter-lookup-http.service';
 import { VoterProfileDialogComponent } from './voter-profile-dialog/voter-profile-dialog.component';
 
 

@@ -1,8 +1,8 @@
-import { User } from './../../../shared/models/userModel';
-import { Script, Flag, Question } from './../../../shared/models/scriptModel';
-import { House } from './../../../shared/models/houseModel';
+import { User } from './../../shared/models/userModel';
+import { Script, Flag, Question } from './../../shared/models/scriptModel';
+import { House } from './../../shared/models/houseModel';
 
-const userMichael = new User('1', 'Michael', 'Reynoso', 'Gomez',
+export const userMichael = new User('1', 'Michael', 'Reynoso', 'Gomez',
     [new House('1234 some street', '', 'some city', 'San Bernardino', 'CA', '92345')],
     '0000000000', 'asdf32343');
 

@@ -6,6 +6,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'voterLookup', loadChildren: './voter-lookup/voter-lookup.module#VoterLookupModule'},
   {path: 'scripts', loadChildren: './scripts/scripts.module#ScriptsModule'},
+  {path: 'phone', loadChildren: './phone/phone.module#PhoneModule'},
   { path: '**', redirectTo: '' }
 ];
 

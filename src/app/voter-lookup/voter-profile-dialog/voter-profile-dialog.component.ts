@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-voter-profile-dialog',
@@ -8,8 +8,8 @@ import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 })
 export class VoterProfileDialogComponent {
 
-  constructor(public dialogRef: MdDialogRef<VoterProfileDialogComponent>,
-    @Inject(MD_DIALOG_DATA) public data: any) { }
+  constructor(public dialogRef: MatDialogRef<VoterProfileDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   closeDialog() {
     this.dialogRef.close();
