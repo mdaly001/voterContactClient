@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Script, Question } from './../../shared/models/scriptModel';
-import { ScriptsProfileHttpService } from './../services/scripts-profile-http.service';
+import { ScriptsProfileHttpService } from './scripts-profile-http.service';
 
 @Injectable()
 export class ScriptsProfileService {

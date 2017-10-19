@@ -19,7 +19,7 @@ const responseFlags: Flag[] = [
 const candidateQuestions: Question[] = [
     new Question('Are you aware there will be an election this upcoming November', responseFlags),
     new Question('Will you be voting this upcoming election?', responseFlags),
-    new Question('Do you support Eloise for Assembly?', responseFlags)
+    new Question('Do you support Monica for Assembly?', responseFlags)
 ];
 
 const nonProfitQuestions: Question[] = [

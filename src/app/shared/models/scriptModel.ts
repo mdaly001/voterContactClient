@@ -2,9 +2,9 @@ import { User } from './../../shared/models/userModel';
 
 export class Script {
     constructor(
-        public scriptName: string,
-        public scriptDetails: string,
-        public scriptQuestions: Question[],
+        public name: string,
+        public details: string,
+        public questions: Question[],
         public creationDate: Date,
         public createdBy: User
     ) { }

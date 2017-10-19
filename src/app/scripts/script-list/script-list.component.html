@@ -3,19 +3,19 @@
       <!-- Script Name -->
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.scriptName}}</mat-cell>
+        <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
       </ng-container>
   
       <!-- Script Details -->
       <ng-container matColumnDef="details">
         <mat-header-cell *matHeaderCellDef>Script Detail</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.scriptDetails}}</mat-cell>
+        <mat-cell *matCellDef="let row">{{row.details}}</mat-cell>
       </ng-container>
   
       <!-- # of Script Questions -->
       <ng-container matColumnDef="amountOfQuestions">
         <mat-header-cell *matHeaderCellDef>Amount of Questions</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.scriptQuestions.length}}</mat-cell>
+        <mat-cell *matCellDef="let row">{{row.questions.length}}</mat-cell>
       </ng-container>
   
       <!-- Created By -->

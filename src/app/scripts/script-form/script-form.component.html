@@ -3,14 +3,14 @@
     <tr>
       <td>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Script Name" formControlName="scriptName">
+          <input matInput placeholder="Script Name" formControlName="name">
         </mat-form-field>
       </td>
     </tr>
     <tr>
       <td>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Script Details" formControlName="scriptDetails">
+          <input matInput placeholder="Script Details" formControlName="details">
         </mat-form-field>
       </td>
     </tr>
@@ -18,15 +18,15 @@
       <!-- Script Question Array -->
       <tr>
         <table cellspacing="15">
-          <tr formArrayName="scriptQuestions">
-            <div *ngFor="let question of scriptQuestions.controls; let i=index" [formGroupName]="i">
+          <tr formArrayName="questions">
+            <div *ngFor="let question of questions.controls; let i=index" [formGroupName]="i">
               <td>
                 <mat-form-field class="full-width">
                   <input matInput placeholder="Question" formControlName="question">
                 </mat-form-field>
               </td>
               <td>
-                <button (click)="removeQuestion(i)" type="button" *ngIf="scriptQuestions.controls.length>1">Delete</button>
+                <button (click)="removeQuestion(i)" type="button" *ngIf="questions.controls.length>1">Delete</button>
               </td>
 
               <!-- Flags Array -->

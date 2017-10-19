@@ -1,13 +1,11 @@
-import { Script } from './scriptModel';
+import { Voter } from './voterModel';
 import { User } from './userModel';
-import { Universe } from './universeModel';
 
-export class Phonebank {
+export class Universe {
     constructor(
         public name: string,
         public details: string,
-        public script: Script,
-        public universe: Universe,
+        public voters: Voter[],
         public creationDate: Date,
         public createdBy: User
     ) { }

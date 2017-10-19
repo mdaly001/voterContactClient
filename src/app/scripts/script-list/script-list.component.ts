@@ -5,7 +5,7 @@ import { Script } from './../../shared/models/scriptModel';
 import { ScriptFormComponent } from './../script-form/script-form.component';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import {DataSource} from '@angular/cdk/collections';
+import { DataSource } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-script-list',
@@ -44,7 +44,7 @@ export class ScriptListComponent implements OnInit {
 
 export class ExampleDataSource extends DataSource<any> {
   constructor(private _scriptsProfileService: ScriptsProfileService) {
-    super( );
+    super();
   }
 
   connect(): Observable<Script[]> {

@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Script } from './..//models/scriptModel';
+import { Universe } from './../models/universeModel';
 
 @Injectable()
-export class ScriptsProfileHttpService {
+export class UniverseHttpService {
 
   constructor(http: Http) { }
 
-  getScriptList(): Script[] {
+  getUniverseList(): Universe[] {
     return;
   }
-
-  addScript(script: Script) {
-    return;
-  }
-
 }

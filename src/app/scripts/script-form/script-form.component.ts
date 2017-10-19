@@ -21,10 +21,10 @@ export class ScriptFormComponent {
 
   createForm() {
     this.scriptForm = this._fb.group({
-      scriptName: '',
-      scriptDetails: '',
-      scriptQuestions: this._fb.array([
-        this.initScriptQuestions()
+      name: '',
+      details: '',
+      questions: this._fb.array([
+        this.initquestions()
       ]),
       creationDate: '',
       createdBy: ' '
@@ -36,26 +36,26 @@ export class ScriptFormComponent {
 
   patchForm(script: Script) {
     this.scriptForm.patchValue({
-      scriptName: script.scriptName,
-      scriptDetails: script.scriptDetails,
+      name: script.name,
+      details: script.details,
       creationDate: script.creationDate,
       createdBy: script.createdBy
     });
     this.removeQuestion(0);
-    this.patchScriptQuestions(script.scriptQuestions);
+    this.patchquestions(script.questions);
   }
 
-  patchScriptQuestions(questions: Question[]) {
+  patchquestions(questions: Question[]) {
     for (let i = 0; i < questions.length; i++) {
-      this.scriptQuestions.push(this.initScriptQuestions(questions[i]));
-      const responseFlags = this.scriptForm.get('scriptQuestions.' + i).get('responseFlags') as FormArray;
+      this.questions.push(this.initquestions(questions[i]));
+      const responseFlags = this.scriptForm.get('questions.' + i).get('responseFlags') as FormArray;
       for (let j = 0; j < questions[i].responseFlags.length; j++) {
         responseFlags.push(this.initFlag(questions[i].responseFlags[j]));
       }
     }
   }
 
-  initScriptQuestions(question?: Question) {
+  initquestions(question?: Question) {
     if (question) {
       return this._fb.group({
         question: question.question,
@@ -86,25 +86,25 @@ export class ScriptFormComponent {
   }
 
   addResponseFlag(idx: number) {
-    const responseFlags = this.scriptForm.get('scriptQuestions.' + idx).get('responseFlags') as FormArray;
+    const responseFlags = this.scriptForm.get('questions.' + idx).get('responseFlags') as FormArray;
     responseFlags.push(this.initFlag());
   }
 
   removeResponseFlag(idxOfQuestion: number, idxOfFlag: number) {
-    const responseFlags = this.scriptForm.get('scriptQuestions.' + idxOfQuestion).get('responseFlags') as FormArray;
+    const responseFlags = this.scriptForm.get('questions.' + idxOfQuestion).get('responseFlags') as FormArray;
     responseFlags.removeAt(idxOfFlag);
   }
 
-  get scriptQuestions(): FormArray {
-    return this.scriptForm.get('scriptQuestions') as FormArray;
+  get questions(): FormArray {
+    return this.scriptForm.get('questions') as FormArray;
   }
 
   addQuestion() {
-    this.scriptQuestions.push(this.initScriptQuestions());
+    this.questions.push(this.initquestions());
   }
 
   removeQuestion(idx: number) {
-    const questions = this.scriptForm.get('scriptQuestions') as FormArray;
+    const questions = this.scriptForm.get('questions') as FormArray;
     questions.removeAt(idx);
   }
 

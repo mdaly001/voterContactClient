@@ -1,0 +1,31 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>{{phonebank.name}}</mat-panel-title>
+    <mat-panel-description>{{phonebank.details}}</mat-panel-description>
+    <button class="phonebank-link" mat-raised-button color="accent" (click)="enterPhonebank(phonebank)">Enter phonebank</button>
+  </mat-expansion-panel-header>
+  <div>
+    <h1 style="text-align: center">Universe size: {{universeSize}}</h1>
+  </div>
+  <div style="display: flex">
+    <div style="width: 50%">
+          <h2>Script: {{phonebank.script.name}}</h2>
+        <mat-expansion-panel *ngFor="let question of phonebank.script.questions">
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{question.question}}</mat-panel-title>
+          </mat-expansion-panel-header>
+          <app-id-graph [question]="question"></app-id-graph>
+        </mat-expansion-panel>
+    </div>
+    <div>
+      <h2 style="text-align: center">Pass {{passNumber}}</h2>
+      <div style="display: block">
+        <canvas baseChart 
+          [data]="data" 
+          [labels]="labels"
+          [chartType]="chartType"></canvas>
+      </div>
+      <div><h3 style="text-align: center">Total (unique) Ids: {{totalIds}}</h3></div>
+    </div>
+  </div>
+</mat-expansion-panel>

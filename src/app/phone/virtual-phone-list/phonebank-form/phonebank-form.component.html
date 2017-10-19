@@ -1,0 +1,37 @@
+<form [formGroup]="phonebankForm" (ngSubmit)="onSubmit()" class="form-full-width">
+  <table cellspacing="15">
+    <tr>
+      <td>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Phonebank Name" formControlName="name">
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Phonebank Details" formControlName="details">
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="full-width">
+          <mat-select placeholder="Select Script" formControlName="script">
+            <mat-option *ngFor="let script of scriptList" [value]="script"> {{script.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="full-width">
+          <mat-select placeholder="Select Universe" formControlName="universe">
+            <mat-option *ngFor="let universe of universeList" [value]="universe"> {{universe.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <button type="submit">Save</button>
+</form>
