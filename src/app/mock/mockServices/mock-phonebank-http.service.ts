@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Phonebank } from './../../shared/models/phonebankModel';
 import { PHONEBANKLIST } from './../mockData/mock-phonebankList';
 import { Question } from './../../shared/models/scriptModel';
+import { VOTERLIST } from './../mockData/mock-voterList';
+import { Voter } from './../../shared/models/voterModel';
 
 @Injectable()
 export class MockPhonebankHttpService {
@@ -41,6 +43,12 @@ export class MockPhonebankHttpService {
 
   addPhonebank(phonebank: Phonebank) {
     this.phonebankList.push(phonebank);
+  }
+
+  getPhoneHouseHold(): any {
+    const voters: Voter[] = [VOTERLIST[0], VOTERLIST[1]];
+
+    return voters;
   }
 
 }

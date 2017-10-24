@@ -10,7 +10,7 @@ export const VOTERLIST: Voter[] = [
         ]),
     new Voter('Monica', 'Gomez', 'Reynoso', new Date('1980/11/23'), 'FD3asdfs',
         'Democrat', '1234 Some Street', 'Apt 123', 'Some City', 'San Bernardino', 'CA',
-        '92345', '9999999933', 'Mexico', [
+        '92345', '9999999924', 'Mexico', [
             new Registration(new Date('2012/01/02'), 'Riverside', 'Online', true),
             new Registration(new Date('2004/02/12'), 'San Bernardino', 'in person', true)
         ]),

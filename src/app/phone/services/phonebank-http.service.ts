@@ -36,4 +36,9 @@ export class PhonebankHttpService {
 
   }
 
+  getPhoneHouseHold(): any {
+    return;
+  }
+
+
 }

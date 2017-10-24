@@ -1,8 +1,18 @@
 <div style="display: flex">
-  <div style="width: 75%">
-    <app-active-call></app-active-call>
+  <div style="width: 60%">
+    <app-active-call
+      [phoneHouseHold]="phoneHouseHold"
+      [script]="script">
+    </app-active-call>
   </div>
-  <div style="display: block">
-    <h1>TEST</h1>
+  <div style="display: block; margin-left: 15px;">
+    <h1>Total calls this session: {{callCounter}}</h1>
+    <h1>Current call time: {{callDuration}}</h1>
+    <h2>Average minutes per call: {{avgMinCounter}}</h2>
+    <div>
+      <h2 style="text-align: center">Session IDs </h2>
+      <canvas baseChart [datasets]="chartData" [labels]="labels" [options]="chartOptions" [legend]="chartLegend" [chartType]="chartType">
+      </canvas>
+    </div>
   </div>
 </div>

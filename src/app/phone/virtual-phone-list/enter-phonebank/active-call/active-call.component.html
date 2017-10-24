@@ -1,3 +1,16 @@
-<p>
-  active-call works!
-</p>
+  <mat-expansion-panel *ngFor="let voter of phoneHouseHold">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{voter.firstName}} {{voter.middleName}} {{voter.lastName}}</mat-panel-title>
+      <mat-panel-description>{{voter.age}} {{voter.party}} {{voter.city}}</mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-expansion-panel *ngFor="let question of script.questions">
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{question.question}}</mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-radio-group class="radio-group">
+        <mat-radio-button class="radio-button" *ngFor="let flag of question.responseFlags" [value]="flag">
+          {{flag.name}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-expansion-panel>
+  </mat-expansion-panel>

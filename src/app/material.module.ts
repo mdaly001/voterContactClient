@@ -13,7 +13,8 @@ import {
   MatTableModule,
   MatDialogModule,
   MatExpansionModule,
-  MatSelectModule
+  MatSelectModule,
+  MatRadioModule
 } from '@angular/material';
 
 
@@ -32,7 +33,8 @@ import {
     MatTableModule,
     MatDialogModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ],
   exports: [
     MatSidenavModule,
@@ -46,7 +48,8 @@ import {
     MatTableModule,
     MatDialogModule,
     MatExpansionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ],
   declarations: []
 })

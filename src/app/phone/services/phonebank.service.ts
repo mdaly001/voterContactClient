@@ -50,4 +50,9 @@ export class PhonebankService {
     this._phonebankHttpService.addPhonebank(phonebank);
     this._phonebankList.next(this._phonebankHttpService.getPhonebankList());
   }
+
+  getPhoneHouseHold() {
+    return this._phonebankHttpService.getPhoneHouseHold();
+  }
+
 }
