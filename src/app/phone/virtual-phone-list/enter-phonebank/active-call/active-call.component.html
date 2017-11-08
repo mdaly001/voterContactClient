@@ -1,16 +1,49 @@
+<!-- <form [formGroup]="phonebankForm" (ngSubmit)="onSubmit()">
   <mat-expansion-panel *ngFor="let voter of phoneHouseHold">
     <mat-expansion-panel-header>
       <mat-panel-title>{{voter.firstName}} {{voter.middleName}} {{voter.lastName}}</mat-panel-title>
       <mat-panel-description>{{voter.age}} {{voter.party}} {{voter.city}}</mat-panel-description>
     </mat-expansion-panel-header>
-    <mat-expansion-panel *ngFor="let question of script.questions">
-      <mat-expansion-panel-header>
-        <mat-panel-title>{{question.question}}</mat-panel-title>
-      </mat-expansion-panel-header>
-      <mat-radio-group class="radio-group">
-        <mat-radio-button class="radio-button" *ngFor="let flag of question.responseFlags" [value]="flag">
+    <div formArrayName="questions">
+      <div *ngFor="let voters of voters.controls; let i = index" [formGroupName]="i">
+        <mat-expansion-panel *ngFor="let question of voters[i].controls.questions; let j=index" [expanded]="true" [formGroupName]="k">
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{question.question}}</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-radio-group class="radio-group" formArrayName="responseFlags" formControlName="flag">
+            <div *ngFor="let flag of question[j].controls.responseFlags.controls; let k=index" [formGroupName]="k">
+              <mat-radio-button class="radio-button" [value]="name">
+                {{name}}
+              </mat-radio-button>
+            </div>
+          </mat-radio-group>
+        </mat-expansion-panel>
+      </div>
+    </div>
+  </mat-expansion-panel>
+  <button type="submit">Save</button>
+</form> -->
+
+
+<form [formGroup]="phonebankForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="voters">
+<mat-expansion-panel *ngFor="let voter of phoneHouseHold; let i=index" [formGroupName]="i">
+  <mat-expansion-panel-header>
+    <mat-panel-title>{{voter.firstName}} {{voter.middleName}} {{voter.lastName}}</mat-panel-title>
+    <mat-panel-description>{{voter.age}} {{voter.party}} {{voter.city}}</mat-panel-description>
+    <input formControlName="voterId" type="hidden" value="someFakeId">
+  </mat-expansion-panel-header>
+  <mat-expansion-panel *ngFor="let question of script.questions" [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{question.question}}</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-radio-group class="radio-group">
+        <mat-radio-button class="radio-button" *ngFor="let flag of question.responseFlags" [value]="flag.name">
           {{flag.name}}
         </mat-radio-button>
-      </mat-radio-group>
-    </mat-expansion-panel>
+    </mat-radio-group>
   </mat-expansion-panel>
+</mat-expansion-panel>
+</div>
+<button type="submit">Save</button>
+</form>

@@ -24,7 +24,7 @@ export class ScriptFormComponent {
       name: '',
       details: '',
       questions: this._fb.array([
-        this.initquestions()
+        this.initQuestions()
       ]),
       creationDate: '',
       createdBy: ' '
@@ -42,12 +42,12 @@ export class ScriptFormComponent {
       createdBy: script.createdBy
     });
     this.removeQuestion(0);
-    this.patchquestions(script.questions);
+    this.patchQuestions(script.questions);
   }
 
-  patchquestions(questions: Question[]) {
+  patchQuestions(questions: Question[]) {
     for (let i = 0; i < questions.length; i++) {
-      this.questions.push(this.initquestions(questions[i]));
+      this.questions.push(this.initQuestions(questions[i]));
       const responseFlags = this.scriptForm.get('questions.' + i).get('responseFlags') as FormArray;
       for (let j = 0; j < questions[i].responseFlags.length; j++) {
         responseFlags.push(this.initFlag(questions[i].responseFlags[j]));
@@ -55,7 +55,7 @@ export class ScriptFormComponent {
     }
   }
 
-  initquestions(question?: Question) {
+  initQuestions(question?: Question) {
     if (question) {
       return this._fb.group({
         question: question.question,
@@ -100,7 +100,7 @@ export class ScriptFormComponent {
   }
 
   addQuestion() {
-    this.questions.push(this.initquestions());
+    this.questions.push(this.initQuestions());
   }
 
   removeQuestion(idx: number) {
